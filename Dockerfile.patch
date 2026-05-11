@@ -1,4 +1,4 @@
-FROM PASTE_ORIGINAL_RUNPOD_IMAGE_HERE
+FROM registry.runpod.net/wlsdml1114-infinitetalk-runpod-hub-skyreelsv3-dockerfile:a287fc18b
 
 WORKDIR /
 

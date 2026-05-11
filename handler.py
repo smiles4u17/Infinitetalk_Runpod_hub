@@ -403,6 +403,12 @@ def handler(job):
         logger.info(f"두 번째 오디오 경로: {wav_path_2}")
 
     prompt = load_workflow(workflow_path)
+    for node_id, node in prompt.items():
+    if node.get("class_type") == "VHS_VideoCombine":
+        node.setdefault("inputs", {})
+        node["inputs"]["save_output"] = True
+        node["inputs"]["filename_prefix"] = f"infinitetalk_{task_id}"
+        logger.info(f"✅ Forced VHS_VideoCombine node {node_id} to save output")
 
     # ------------------------------------------------------------------
     # 동적 Force Offload 설정

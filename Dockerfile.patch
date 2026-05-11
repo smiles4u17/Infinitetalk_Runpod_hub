@@ -1,0 +1,14 @@
+FROM PASTE_ORIGINAL_RUNPOD_IMAGE_HERE
+
+WORKDIR /
+
+COPY handler.py /handler.py
+COPY I2V_single.json /I2V_single.json
+COPY I2V_multi.json /I2V_multi.json
+COPY V2V_single.json /V2V_single.json
+COPY V2V_multi.json /V2V_multi.json
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
